@@ -1,0 +1,10 @@
+make --dry-run --keep-going --print-directory
+make: Entering directory '/media/djoker/data/code/c/solonggl/build'
+make: 'so_long' is up to date.
+make: Leaving directory '/media/djoker/data/code/c/solonggl/build'
+ 
+Makefile:52: warning: overriding recipe for target 'clean'
+Makefile:42: warning: ignoring old recipe for target 'clean'
+Makefile:55: warning: overriding recipe for target 'fclean'
+Makefile:45: warning: ignoring old recipe for target 'fclean'
+

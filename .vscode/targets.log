@@ -1,0 +1,587 @@
+make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+Makefile:52: warning: overriding recipe for target 'clean'
+Makefile:42: warning: ignoring old recipe for target 'clean'
+Makefile:55: warning: overriding recipe for target 'fclean'
+Makefile:45: warning: ignoring old recipe for target 'fclean'
+
+# GNU Make 4.2.1
+# Built for x86_64-pc-linux-gnu
+# Copyright (C) 1988-2016 Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+ 
+
+# Make data base, printed on Sun Aug 21 07:58:28 2022
+
+# Variables
+
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# automatic
+?F = $(notdir $?)
+# environment
+DESKTOP_SESSION = cinnamon
+# default
+.SHELLFLAGS := -c
+# environment
+XDG_SESSION_CLASS = user
+# makefile (from 'Makefile', line 5)
+SRC = glad.c so_long.c Engine.c   map_load.c  map_check.c libx_utils.c game_player.c game_player_bullet.c game_particles.c game_objects.c game_objects_extra.c game_objects_add.c game_math.c game_load.c game_gems.c game_font.c game_explosion.c game_enemy.c game_enemy_bullet.c game_emitter.c game_ease.c game_core.c game_colider.c func_extra.c draw_utils.c game_timer.c
+# environment
+ANDROID_NDK_ROOT = /home/djoker/Android/Sdk/ndk/android-ndk-r20b
+# environment
+XDG_SESSION_TYPE = x11
+# environment
+GTK3_MODULES = xapp-gtk3-module
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# environment
+XAUTHORITY = /home/djoker/.Xauthority
+# environment
+GDMSESSION = cinnamon
+# default
+MAKE_VERSION := 4.2.1
+# makefile
+CURDIR := /media/djoker/data/code/c/solonggl/build
+# makefile
+SHELL = /bin/sh
+# environment
+JRE_HOME = /usr/lib/jvm/jdk1.8.0_202/jre
+# environment
+GDM_LANG = pt_PT
+# environment
+VTE_VERSION = 6003
+# environment
+QT5DIR = /home/djoker/Qt
+# environment
+VSCODE_NLS_CONFIG = {"locale":"pt-pt","availableLanguages":{},"_languagePackSupport":true}
+# environment
+_ = /usr/bin/code
+# makefile (from 'Makefile', line 21)
+CFLAGS = -DPLATFORM_LINUX -I include -Wall  -g 
+# environment
+XDG_CONFIG_DIRS = /etc/xdg/xdg-cinnamon:/etc/xdg
+# environment
+QT_DIR = /home/djoker/Qt/5.15.2
+# environment
+GTK_OVERLAY_SCROLLING = 1
+# makefile (from 'Makefile', line 1)
+MAKEFILE_LIST :=  Makefile
+# environment
+FLUTTER_HOME = /home/djoker/snap/flutter/common/flutter
+# automatic
+@F = $(notdir $@)
+# environment
+PIP = /home/djoker/.local/bin
+# 'override' directive
+GNUMAKEFLAGS := 
+# environment
+MANDATORY_PATH = /usr/share/gconf/cinnamon.mandatory.path
+# environment
+XDG_DATA_DIRS = /usr/share/cinnamon:/usr/share/gnome:/home/djoker/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share:/var/lib/snapd/desktop
+# environment
+DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
+# environment
+QT_PLUGIN_PATH = /media/djoker/STORAGE/linux/code/Qt/5.15.2/gcc_64/plugins
+# environment
+LESSOPEN = | /usr/bin/lesspipe %s
+# environment
+VSCODE_CWD = /media/djoker/data/code/c/solonggl/build
+# environment
+XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session0
+# environment
+ANDROID_NDK_PLATFORM = android-29
+# environment
+ANDROID_SDK = /home/djoker/Android/Sdk
+# default
+MAKE_HOST := x86_64-pc-linux-gnu
+# environment
+PATH = /home/djoker/code/cpp/BennuGD2/build/build-linux-gnu/bin:/home/djoker/Qt/5.15.2/android/bin:/home/djoker/Qt/5.15.2/android/bin:/home/djoker/Android/Sdk/tools/platform-tools:/media/djoker/code/go/bin:/usr/local/go/bin:/home/djoker/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/djoker/.local/bin:/home/djoker/code/emsdk:/home/djoker/code/emsdk/upstream/emscripten:/home/djoker/code/emsdk/node/14.18.2_64bit/bin:/home/djoker/code/emsdk/upstream/emscripten/tools:/home/djoker/Qt:/home/djoker/Qt/5.15.2/gcc_64/bin:/home/djoker/Qt/Tools/CMake/bin:/home/djoker/Qt/Tools/Ninja:/home/djoker/Qt/Tools/QtCreator/bin:/home/djoker/.buildozer/android/platform/android-ndk-r19c:/home/djoker/.buildozer/android/platform/android-sdk:/home/djoker/Android/apache-ant-1.9.15/bin:/usr/lib/jvm/jdk1.8.0_202/bin:/home/djoker/snap/flutter/common/flutter/bin:/home/djoker/.local/bin/:/home/djoker/.local/bin
+# environment
+GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
+# environment
+SESSION_MANAGER = local/M515UA:@/tmp/.ICE-unix/1934,unix/M515UA:/tmp/.ICE-unix/1934
+# environment
+XDG_RUNTIME_DIR = /run/user/1000
+# environment
+GOPATH = /media/djoker/code/go
+# environment
+EMSDK_NODE = /home/djoker/code/emsdk/node/14.15.5_64bit
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# environment
+ANDROID_HOME = /home/djoker/Android/Sdk
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
+# environment
+XDG_GREETER_DATA_DIR = /var/lib/lightdm-data/djoker
+# environment
+LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+# environment
+INSIDE_NEMO_PYTHON = 
+# environment
+XDG_SESSION_DESKTOP = cinnamon
+# environment
+SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
+# automatic
+%F = $(notdir $%)
+# environment
+DISPLAY = :0
+# environment
+ANDROIDAPI = 27
+# environment
+ANDROIDNDK = /home/djoker/.buildozer/android/platform/android-ndk-r19c
+# makefile (from 'Makefile', line 12)
+OBJS = ${addprefix src/,${SRC:.c=.o}}
+# environment
+PWD = /media/djoker/data/code/c/solonggl/build
+# environment
+QT_QPA_PLATFORMTHEME = qt5ct
+# default
+.LOADED := 
+# environment
+XDG_SEAT = seat0
+# environment
+SSH_AGENT_PID = 2078
+# environment
+EM_CACHE = /home/djoker/code/emsdk/upstream/emscripten/cache
+# environment
+PKG_CONFIG_PATH = :/usr/local/lib/pkgconfig
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = X-Cinnamon
+# environment
+GTK_MODULES = gail:atk-bridge
+# makefile (from 'Makefile', line 17)
+HEAD = -Iinclude -I./include
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+HOME = /home/djoker
+# environment
+LD_LIBRARY_PATH = /home/djoker/Qt/5.15.2/gcc_64/lib:/home/djoker/Qt/5.15.2/gcc_64/lib:/media/djoker/code/local/user/lib:/usr/local/lib:/home/djoker/code/cpp/BennuGD2/build/build-linux-gnu/bin
+# environment
+LESSCLOSE = /usr/bin/lesspipe %s %s
+# environment
+VSCODE_CLI = 1
+# environment
+VSCODE_CODE_CACHE_PATH = /home/djoker/.config/Code/CachedData/e4503b30fc78200f846c62cf8091b76ff5547662
+# environment
+NDKAPI = 21
+# environment
+LOGNAME = djoker
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+# environment
+ELECTRON_NO_ATTACH_CONSOLE = 1
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# environment
+GNOME_DESKTOP_SESSION_ID = this-is-deprecated
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# environment
+XDG_VTNR = 7
+# environment
+ANDROIDSDK = /home/djoker/.buildozer/android/platform/android-sdk
+# environment
+MAKELEVEL := 0
+# environment
+COLORTERM = truecolor
+# default
+MAKE = $(MAKE_COMMAND)
+# default
+MAKECMDGOALS := all
+# environment
+EMSCRIPTEN_SDK = /home/djoker/code/emsdk
+# environment
+SHLVL = 1
+# makefile (from 'Makefile', line 19)
+CC = clang
+# environment
+JAVA_HOME = /usr/lib/jvm/jdk1.8.0_202
+# environment
+XDG_SESSION_ID = c2
+# environment
+USER = djoker
+# makefile
+.DEFAULT_GOAL := so_long
+# environment
+XDG_CURRENT_DESKTOP = X-Cinnamon
+# environment
+GOROOT = /usr/local/go
+# environment
+LIBVIRT_DEFAULT_URI = qemu:///system
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# default
+MAKE_COMMAND := make
+# default
+.VARIABLES := 
+# automatic
+*F = $(notdir $*)
+# environment
+LANGUAGE = pt_PT:
+# environment
+XDG_SEAT_PATH = /org/freedesktop/DisplayManager/Seat0
+# environment
+VSCODE_IPC_HOOK = /run/user/1000/vscode-4604429b-1.70.2-main.sock
+# makefile
+MAKEFLAGS = pqrR
+# environment
+MFLAGS = -pqrR
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# environment
+GDK_BACKEND = x11
+# automatic
++F = $(notdir $+)
+# environment
+CINNAMON_VERSION = 5.2.7
+# environment
+QT_ACCESSIBILITY = 1
+# environment
+DEFAULTS_PATH = /usr/share/gconf/cinnamon.default.path
+# default
+MAKEFILES := 
+# environment
+EM_CONFIG = /home/djoker/code/emsdk/.emscripten
+# automatic
+<F = $(notdir $<)
+# makefile (from 'Makefile', line 22)
+MLX_FLAGS = -lSDL2 -lGL -ldl -lm
+# environment
+ANDROID_SDK_ROOT = /home/djoker/Android/Sdk
+# environment
+LC_ALL = C
+# environment
+GJS_DEBUG_TOPICS = JS ERROR;JS LOG
+# environment
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/2a2ef1ae_36b8_4a07_87e8_332cbffb6d4d
+# automatic
+^F = $(notdir $^)
+# environment
+GNOME_TERMINAL_SERVICE = :1.107
+# default
+SUFFIXES := 
+# environment
+CHROME_DESKTOP = code-url-handler.desktop
+# default
+.INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
+# environment
+GJS_DEBUG_OUTPUT = stderr
+# makefile (from 'Makefile', line 2)
+NAME = so_long
+# default
+.RECIPEPREFIX := 
+# environment
+LANG = C
+# environment
+TERM = xterm-256color
+# environment
+EMSDK = /home/djoker/code/emsdk
+ 
+# environment
+VSCODE_PID = 6186
+# environment
+SDK_ROOT = /home/djoker/Android/Sdk
+# variable set hash-table stats:
+# Load=136/1024=13%, Rehash=0, Collisions=22/166=13%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# . (device 66309, inode 24252): 16 files, no impossibilities.
+
+# 16 files, no impossibilities in 1 directories.
+
+# Implicit Rules
+
+# No implicit rules.
+
+# Files
+
+# Not a target:
+src/glad.o:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-21 07:19:48.669478
+#  File has been updated.
+#  Successfully updated.
+
+all: so_long
+#  Phony target (prerequisite of .PHONY).
+#  Command line target.
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has been updated.
+#  Successfully updated.
+
+.PHONY: all clean fclean re all clean fclean re
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/game_objects_add.o:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-21 07:19:52.4147063
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/func_extra.o:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-21 07:19:55.7439166
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/game_timer.o:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-21 07:19:56.3245527
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/game_enemy_bullet.o:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-21 07:19:54.3649128
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-21 07:57:24.3465157
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/map_check.o:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-21 07:19:50.3618148
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/game_player_bullet.o:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-21 07:19:51.260649
+#  File has been updated.
+#  Successfully updated.
+
+val: so_long
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 34):
+					valgrind \
+					--leak-check=full --tool=memcheck \
+					--show-reachable=yes \
+					--track-fds=yes \
+					--errors-for-leak-kinds=all \
+					--show-leak-kinds=all ./${NAME}
+
+# Not a target:
+src/game_particles.o:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-21 07:19:51.560684
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/game_ease.o:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-21 07:19:54.9205319
+#  File has been updated.
+#  Successfully updated.
+
+.c.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 25):
+					${CC} ${CFLAGS} ${HEAD} -c $< -o ${<:.c=.o}
+
+fclean: clean clean
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 55):
+		$(RM) $(NAME) 
+
+# Not a target:
+src/map_load.o:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-21 07:19:50.0355436
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/draw_utils.o:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-21 07:19:56.0167267
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/so_long.o:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-21 07:19:48.9378951
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/game_font.o:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-21 07:19:53.5341722
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+src/Engine.o:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-21 07:58:12.0761054
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/game_explosion.o:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-21 07:19:53.8362771
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/game_math.o:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-21 07:19:52.691267
+#  File has been updated.
+#  Successfully updated.
+
+re: fclean all
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 58):
+	fclean $(NAME)
+
+# Not a target:
+src/game_load.o:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-21 07:19:52.9877891
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/game_core.o:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-21 07:58:12.3676785
+#  File has been updated.
+#  Successfully updated.
+
+clean:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 52):
+				$(RM) $(OBJS) 
+
+# Not a target:
+src/game_objects_extra.o:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-21 07:19:52.1097583
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/game_colider.o:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-21 07:19:55.4828946
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/game_enemy.o:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-21 07:19:54.1129462
+#  File has been updated.
+#  Successfully updated.
+
+so_long: src/glad.o src/so_long.o src/Engine.o src/map_load.o src/map_check.o src/libx_utils.o src/game_player.o src/game_player_bullet.o src/game_particles.o src/game_objects.o src/game_objects_extra.o src/game_objects_add.o src/game_math.o src/game_load.o src/game_gems.o src/game_font.o src/game_explosion.o src/game_enemy.o src/game_enemy_bullet.o src/game_emitter.o src/game_ease.o src/game_core.o src/game_colider.o src/func_extra.o src/draw_utils.o src/game_timer.o
+#  Implicit rule search has not been done.
+ 
+#  Last modified 2022-08-21 07:58:12.58492
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 29):
+					${CC} ${CFLAGS}  ${OBJS} -o ${NAME}  ${MLX_FLAGS}
+
+# Not a target:
+src/game_emitter.o:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-21 07:19:54.6519736
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/game_gems.o:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-21 07:19:53.2561745
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/game_player.o:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-21 07:19:50.9555145
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/game_objects.o:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-21 07:19:51.8508295
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/libx_utils.o:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-21 07:19:50.6612826
+#  File has been updated.
+#  Successfully updated.
+
+# files hash-table stats:
+# Load=37/1024=4%, Rehash=0, Collisions=2/92=2%
+# VPATH Search Paths
+
+# No 'vpath' search paths.
+
+# No general ('VPATH' variable) search path.
+
+# strcache buffers: 1 (0) / strings = 53 / storage = 666 B / avg = 12 B
+# current buf: size = 8162 B / used = 666 B / count = 53 / avg = 12 B
+
+# strcache performance: lookups = 89 / hit rate = 40%
+# hash-table stats:
+# Load=53/8192=1%, Rehash=0, Collisions=1/89=1%
+# Finished Make data base on Sun Aug 21 07:58:28 2022
+
+ 

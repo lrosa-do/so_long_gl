@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "sdl.h": "c",
+        "sdl_events.h": "c",
+        "sdl_cpuinfo.h": "c",
+        "immintrin.h": "c",
+        "stdio.h": "c"
+    },
+    "TCC.args": "",
+    "TCC.flags": "-lSDL2"
+}
