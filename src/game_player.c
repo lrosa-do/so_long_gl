@@ -22,7 +22,7 @@ static void	player_move_y(t_gameobject *player, t_game *game)
 		player->y -= 16;
 		game->moves_count++;
 		player->vars[0] = 4;
-	//	game->post->Blur=1;
+		game->post->Blur=1;
 		doBlur=1;
 	}
 	else if (game->keys[KEY_S]
@@ -31,7 +31,7 @@ static void	player_move_y(t_gameobject *player, t_game *game)
 		player->y += 16;
 		game->moves_count++;
 		player->vars[0] = 1;
-		//game->post->Blur=1;
+		game->post->Blur=1;
 		doBlur=1;
 	}
 	if (game->keys[KEY_A] && place_free(game, player, player->x - 1, player->y))
@@ -39,7 +39,7 @@ static void	player_move_y(t_gameobject *player, t_game *game)
 		player->x -= 16;
 		game->moves_count++;
 		player->vars[0] = 3;
-	//	game->post->Blur=1;
+		game->post->Blur=1;
 		doBlur=1;
 	}
 	else if (game->keys[KEY_D]
@@ -48,7 +48,7 @@ static void	player_move_y(t_gameobject *player, t_game *game)
 		player->x += 16;
 		game->moves_count++;
 		player->vars[0] = 2;
-		//game->post->Blur=1;
+		game->post->Blur=1;
 		doBlur=1;
 	}
 	if (get_time(game) >= player->timers[0] + 45)
@@ -57,11 +57,11 @@ static void	player_move_y(t_gameobject *player, t_game *game)
 			player->vars[1] = 100;
 		player->vars[1]++;
 		player->timers[0] = get_time(game);
-		//if (game->post->Blur==1)
-	//{
-	//game->post->Blur=0;
+		if (game->post->Blur==1)
+	 {
+	 game->post->Blur=0;
 
-	//}
+	}
 
 	}
 
@@ -116,12 +116,12 @@ void	player_update_ex(t_gameobject *player, t_game *game)
 		create_explosion(game, en_colider->x, en_colider->y - 16);
 		return ;
 	}
-	if (player->energia < 50)
+	if (player->energia < 30)
 	{
 	player->parts->visible = 1;
 	player->parts->x = player->x;
 	player->parts->y = player->y;
-	//game->post->Chaos=1;
+	game->post->Chaos=1;
 	}
 }
 

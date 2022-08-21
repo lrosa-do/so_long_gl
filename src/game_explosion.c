@@ -24,7 +24,7 @@ static void	explosion_update(void *g, t_gameobject *b)
 		b->timers[0] = get_time(g);
 		b->graph++;
 		game->shake = 1;
-		//game->post->Shake =1;
+		game->post->Shake =1;
 		game->shake_timer = get_time(game);
 	}
 	if (b->graph > 463)

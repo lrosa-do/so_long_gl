@@ -229,7 +229,7 @@ typedef struct s_game
 	SpriteBatch     *render;
 	PrimitivesBatch *lines;
 	Assets          *assets;
-//	PostProcessor   *post;
+	PostProcessor   *post;
 	Camera2D camera;
 }t_game;
 

@@ -1,7 +1,33 @@
-make --dry-run --keep-going --print-directory
-make: Entering directory '/media/djoker/data/code/c/solonggl/build'
-make: 'so_long' is up to date.
-make: Leaving directory '/media/djoker/data/code/c/solonggl/build'
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/media/djoker/data/code/c/solonggl/git'
+clang -DPLATFORM_LINUX -I include -Wall  -g  -Iinclude -I./include -c src/glad.c -o src/glad.o
+clang -DPLATFORM_LINUX -I include -Wall  -g  -Iinclude -I./include -c src/so_long.c -o src/so_long.o
+clang -DPLATFORM_LINUX -I include -Wall  -g  -Iinclude -I./include -c src/Engine.c -o src/Engine.o
+clang -DPLATFORM_LINUX -I include -Wall  -g  -Iinclude -I./include -c src/map_load.c -o src/map_load.o
+clang -DPLATFORM_LINUX -I include -Wall  -g  -Iinclude -I./include -c src/map_check.c -o src/map_check.o
+clang -DPLATFORM_LINUX -I include -Wall  -g  -Iinclude -I./include -c src/libx_utils.c -o src/libx_utils.o
+clang -DPLATFORM_LINUX -I include -Wall  -g  -Iinclude -I./include -c src/game_player.c -o src/game_player.o
+clang -DPLATFORM_LINUX -I include -Wall  -g  -Iinclude -I./include -c src/game_player_bullet.c -o src/game_player_bullet.o
+clang -DPLATFORM_LINUX -I include -Wall  -g  -Iinclude -I./include -c src/game_particles.c -o src/game_particles.o
+clang -DPLATFORM_LINUX -I include -Wall  -g  -Iinclude -I./include -c src/game_objects.c -o src/game_objects.o
+clang -DPLATFORM_LINUX -I include -Wall  -g  -Iinclude -I./include -c src/game_objects_extra.c -o src/game_objects_extra.o
+clang -DPLATFORM_LINUX -I include -Wall  -g  -Iinclude -I./include -c src/game_objects_add.c -o src/game_objects_add.o
+clang -DPLATFORM_LINUX -I include -Wall  -g  -Iinclude -I./include -c src/game_math.c -o src/game_math.o
+clang -DPLATFORM_LINUX -I include -Wall  -g  -Iinclude -I./include -c src/game_load.c -o src/game_load.o
+clang -DPLATFORM_LINUX -I include -Wall  -g  -Iinclude -I./include -c src/game_gems.c -o src/game_gems.o
+clang -DPLATFORM_LINUX -I include -Wall  -g  -Iinclude -I./include -c src/game_font.c -o src/game_font.o
+clang -DPLATFORM_LINUX -I include -Wall  -g  -Iinclude -I./include -c src/game_explosion.c -o src/game_explosion.o
+clang -DPLATFORM_LINUX -I include -Wall  -g  -Iinclude -I./include -c src/game_enemy.c -o src/game_enemy.o
+clang -DPLATFORM_LINUX -I include -Wall  -g  -Iinclude -I./include -c src/game_enemy_bullet.c -o src/game_enemy_bullet.o
+clang -DPLATFORM_LINUX -I include -Wall  -g  -Iinclude -I./include -c src/game_emitter.c -o src/game_emitter.o
+clang -DPLATFORM_LINUX -I include -Wall  -g  -Iinclude -I./include -c src/game_ease.c -o src/game_ease.o
+clang -DPLATFORM_LINUX -I include -Wall  -g  -Iinclude -I./include -c src/game_core.c -o src/game_core.o
+clang -DPLATFORM_LINUX -I include -Wall  -g  -Iinclude -I./include -c src/game_colider.c -o src/game_colider.o
+clang -DPLATFORM_LINUX -I include -Wall  -g  -Iinclude -I./include -c src/func_extra.c -o src/func_extra.o
+clang -DPLATFORM_LINUX -I include -Wall  -g  -Iinclude -I./include -c src/draw_utils.c -o src/draw_utils.o
+clang -DPLATFORM_LINUX -I include -Wall  -g  -Iinclude -I./include -c src/game_timer.c -o src/game_timer.o
+clang -DPLATFORM_LINUX -I include -Wall  -g   src/glad.o src/so_long.o src/Engine.o src/map_load.o src/map_check.o src/libx_utils.o src/game_player.o src/game_player_bullet.o src/game_particles.o src/game_objects.o src/game_objects_extra.o src/game_objects_add.o src/game_math.o src/game_load.o src/game_gems.o src/game_font.o src/game_explosion.o src/game_enemy.o src/game_enemy_bullet.o src/game_emitter.o src/game_ease.o src/game_core.o src/game_colider.o src/func_extra.o src/draw_utils.o src/game_timer.o -o so_long  -lSDL2 -lGL -ldl -lm
+make: Leaving directory '/media/djoker/data/code/c/solonggl/git'
  
 Makefile:52: warning: overriding recipe for target 'clean'
 Makefile:42: warning: ignoring old recipe for target 'clean'

@@ -314,7 +314,7 @@ def WebBuild(folderRoot ,appName, useCPP,LDARGS , isStatic=True):
 NAME ="so_long"
 
 
-DIR="/media/djoker/data/code/c/solonggl/build"
+DIR="/media/djoker/data/code/c/solonggl/git"
 
 
 SRC =[]
@@ -333,11 +333,10 @@ ARGCC=[]
 ARGCC.append("-I")
 ARGCC.append("/home/djoker/code/crosside/modules/sdl2/include")
 ARGCC.append("-I")
-ARGCC.append("/media/djoker/data/code/c/solonggl/build/src")
+ARGCC.append("/media/djoker/data/code/c/solonggl/git/src")
 ARGCC.append("-I")
-ARGCC.append("/media/djoker/data/code/c/solonggl/build/include")
-ARGCC.append("-I")
-ARGCC.append("/media/djoker/data/code/c/solonggl/build/src/game")
+ARGCC.append("/media/djoker/data/code/c/solonggl/git/include")
+
 
 
 
@@ -363,6 +362,6 @@ app=DIR + OSP + "Web"+OSP  + NAME+ ".html"
 if compile:
     if WebBuild(DIR ,NAME, True,ARGLD , False):
         print("Run ",app)
-        #runProcess(os.getcwd()+OSP+"cserver_linux",[app],False)
+        runProcess(os.getcwd()+OSP+"cserver_linux",[app],False)
 else:
     print("abort")

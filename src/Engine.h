@@ -247,9 +247,9 @@ typedef struct PostProcessor
 
 struct
 {
-    unsigned int MSFBO;
-    unsigned int FBO;
-    unsigned int RBO;
+    GLuint defaultFramebuffer;
+    GLuint colorRenderbuffer;
+    GLuint textureRenderbuffer;
     unsigned int VAO;
     Texture2D texture;
 }Buffer;

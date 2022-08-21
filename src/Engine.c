@@ -3158,77 +3158,43 @@ PostProcessor *CreatePostProcessor( int width,  int height)
   proc->Chaos  =0;
   proc->Blur=0;
 
+  proc->Buffer.defaultFramebuffer=-1;
+  proc->Buffer.colorRenderbuffer=-1;
+  proc->Buffer.textureRenderbuffer=-1;
 
-  //create frame buffers
 
-    glGenFramebuffers(1, &proc->Buffer.MSFBO);
-    glGenFramebuffers(1, &proc->Buffer.FBO);
-    glGenRenderbuffers(1, &proc->Buffer.RBO);
-
-        // initialize renderbuffer storage with a multisampled color buffer (don't need a depth/stencil buffer)
-    glBindFramebuffer(GL_FRAMEBUFFER, proc->Buffer.MSFBO);
-    glBindRenderbuffer(GL_RENDERBUFFER, proc->Buffer.RBO);
-    glRenderbufferStorageMultisample(GL_RENDERBUFFER, 4, GL_RGB, width, height); // allocate storage for render buffer object
-    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER,  proc->Buffer.RBO); // attach MS render buffer object to framebuffer
-    GLenum status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
-    
-    if (status != GL_FRAMEBUFFER_COMPLETE)
-    {
-        switch (status)
-        {
-            case GL_FRAMEBUFFER_UNSUPPORTED: SDL_LogError(0, "[POSTPROCESSOR]: FBO: [ID %i] Framebuffer is unsupported",  proc->Buffer.RBO); break;
-            case GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT: SDL_LogError(0, "[POSTPROCESSOR]: FBO: [ID %i] Framebuffer has incomplete attachment",  proc->Buffer.RBO); break;
-
-            case GL_FRAMEBUFFER_INCOMPLETE_DIMENSIONS: SDL_LogError(0, "[POSTPROCESSOR]: FBO: [ID %i] Framebuffer has incomplete dimensions",  proc->Buffer.RBO); break;
-            case GL_FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT: SDL_LogError(0, "[POSTPROCESSOR]: FBO: [ID %i] Framebuffer has a missing attachment",  proc->Buffer.RBO); break;
-            default: break;
-        }
+    glGenFramebuffers(1, &proc->Buffer.defaultFramebuffer);
+    glBindFramebuffer(GL_FRAMEBUFFER, proc->Buffer.defaultFramebuffer);
     
 
-        //SDL_LogError(0, "[POSTPROCESSOR]: Failed to initialize MSFBO");
-         // glDeleteFramebuffers(1,proc->Buffer.MSFBO);
-        ///  glDeleteFramebuffers(1,proc->Buffer.FBO);
-         // glDeleteRenderbuffers(1,&proc->Buffer.RBO);
-         // glBindFramebuffer(GL_FRAMEBUFFER,0);
-         // glBindRenderbuffer(GL_RENDERBUFFER, 0); 
-         glBindFramebuffer(GL_FRAMEBUFFER, 0);
-      //  return NULL;
-    }
-    // also initialize the FBO/texture to blit multisampled color-buffer to; used for shader operations (for postprocessing effects)
-    glBindFramebuffer(GL_FRAMEBUFFER, proc->Buffer.FBO);
 
+    glGenRenderbuffers(1, &proc->Buffer.colorRenderbuffer);
+    glBindRenderbuffer(GL_RENDERBUFFER, proc->Buffer.colorRenderbuffer);
+    glRenderbufferStorage(GL_RENDERBUFFER, GL_RGBA, width, height );
+    //glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, proc->Buffer.colorRenderbuffer); // attach MS render buffer object to framebuffer
+    //if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
+    //    SDL_LogError(0,"POSTPROCESSOR: Failed to initialize Color BUffer");
+    
+    
+    glGenRenderbuffers(1, &proc->Buffer.textureRenderbuffer);
+    glBindRenderbuffer(GL_RENDERBUFFER, proc->Buffer.textureRenderbuffer);
     proc->Buffer.texture = CreateTexture(width,height,NULL,3);
+    //glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, proc->Buffer.texture.ID, 0); // attach texture to framebuffer as its color attachment
+    //if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
+    //    SDL_LogError(0,"POSTPROCESSOR: Failed to initialize Texture BUffer");
 
 
+    glBindFramebuffer(GL_FRAMEBUFFER, proc->Buffer.defaultFramebuffer);
+    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_RENDERBUFFER, proc->Buffer.colorRenderbuffer);
+    //glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, depth_renderbuffer);
     glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, proc->Buffer.texture.ID, 0); // attach texture to framebuffer as its color attachment
-    
-       status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
-    
-    if (status != GL_FRAMEBUFFER_COMPLETE)
-    {
-        switch (status)
-        {
-            case GL_FRAMEBUFFER_UNSUPPORTED: SDL_LogError(0, "[POSTPROCESSOR]: FBO: [ID %i] Framebuffer is unsupported",  proc->Buffer.FBO); break;
-            case GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT: SDL_LogError(0, "[POSTPROCESSOR]: FBO: [ID %i] Framebuffer has incomplete attachment",  proc->Buffer.FBO); break;
-            case GL_FRAMEBUFFER_INCOMPLETE_DIMENSIONS: SDL_LogError(0, "[POSTPROCESSOR]: FBO: [ID %i] Framebuffer has incomplete dimensions",  proc->Buffer.FBO); break;
-            case GL_FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT: SDL_LogError(0, "[POSTPROCESSOR]: FBO: [ID %i] Framebuffer has a missing attachment",  proc->Buffer.FBO); break;
-            default: break;
-        }
-    
 
-    
-   // if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
-  //  {
-   //     SDL_LogError(0, "[POSTPROCESSOR]: Failed to initialize FBO");
-        // glDeleteFramebuffers(1,proc->Buffer.MSFBO);
-        //  glDeleteFramebuffers(1,proc->Buffer.FBO);
-         // glDeleteRenderbuffers(1,&proc->Buffer.RBO);
-        //  glBindFramebuffer(GL_FRAMEBUFFER,0);
-        //  glBindRenderbuffer(GL_RENDERBUFFER, 0); 
-        glBindFramebuffer(GL_FRAMEBUFFER, 0);
-      //  return NULL;
-    }
+  if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
+        SDL_LogError(0,"POSTPROCESSOR: Failed to initialize  BUffer");
+
+
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
+
 
 
     proc->shader = LoadShader("assets/post_processing.vs","assets/post_processing.fs");
@@ -3301,7 +3267,7 @@ void BeginPostProcessor(PostProcessor *proc)
 {
     if(proc)
     {
-     glBindFramebuffer(GL_FRAMEBUFFER, proc->Buffer.MSFBO);
+     glBindFramebuffer(GL_FRAMEBUFFER, proc->Buffer.defaultFramebuffer);
      glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
      glClear(GL_COLOR_BUFFER_BIT);
     }
@@ -3311,10 +3277,7 @@ void EndPostProcessor(PostProcessor *proc)
 {
     if(proc)
     {
-    glBindFramebuffer(GL_READ_FRAMEBUFFER, proc->Buffer.MSFBO);
-    glBindFramebuffer(GL_DRAW_FRAMEBUFFER, proc->Buffer.FBO);
-    glBlitFramebuffer(0, 0, proc->Buffer.texture.width, proc->Buffer.texture.height, 0, 0, proc->Buffer.texture.width, proc->Buffer.texture.height, GL_COLOR_BUFFER_BIT, GL_NEAREST);
-    glBindFramebuffer(GL_FRAMEBUFFER, 0); // binds both READ and WRITE framebuffer to default framebuffer
+     glBindFramebuffer(GL_FRAMEBUFFER, 0); // binds both READ and WRITE framebuffer to default framebuffer
     }
 }
 void RenderPostProcessor(PostProcessor *proc,float time)
@@ -3342,8 +3305,26 @@ void FreePostProcessor(PostProcessor *proc)
 {
     if(proc)
     {
-     glDeleteBuffers(1, &proc->Buffer.MSFBO);
-     glDeleteBuffers(1, &proc->Buffer.FBO);
+      if (proc->Buffer.defaultFramebuffer)
+        {
+            glDeleteFramebuffers(1, &proc->Buffer.defaultFramebuffer);
+      
+        }
+        
+        if (proc->Buffer.colorRenderbuffer)
+        {
+            glDeleteRenderbuffers(1, &proc->Buffer.colorRenderbuffer);
+            
+        }
+		
+		
+		if( proc->Buffer.textureRenderbuffer )
+		{
+			glDeleteRenderbuffers(1, &proc->Buffer.textureRenderbuffer);
+			
+		}
+
+     glDeleteBuffers(1, &proc->Buffer.VAO);
      FreeShader(proc->shader);
 
      FreeTexture(proc->Buffer.texture);

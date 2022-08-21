@@ -29,36 +29,21 @@ void	game_on_game(t_game *game)
 
 SpriteBatch *render =game->render;
 
-    BeginSpriteBatch(game->render,game->camera);
-    BeginPrimitivesBatch(game->lines);
-
-
-
-
-
-	draw_tiles_onscreen(game);
-	game_objects_update(game);
-	game_emitter_update(game);
-
-
-
-
-	EndSpriteBatch(render);
-
-
-
-
-
-EndPrimitivesBatch(game->lines,game->camera);
-
+/*
 BeginSpriteBatch(game->render,game->camera);
-
+BeginPrimitivesBatch(game->lines);
+draw_tiles_onscreen(game);
+game_objects_update(game);
+game_emitter_update(game);
+EndSpriteBatch(render);
+EndPrimitivesBatch(game->lines,game->camera);
+BeginSpriteBatch(game->render,game->camera);
 game_print_data(game);
-
 EndSpriteBatch(render);
 
-/*
-    game->post->Blur=1;
+*/
+    //game->post->Blur=1;
+	//game->post->Chaos=1;
     BeginPostProcessor(game->post);
     BeginSpriteBatch(game->render,game->camera);
     BeginPrimitivesBatch(game->lines);
@@ -72,7 +57,7 @@ EndSpriteBatch(render);
 	BeginSpriteBatch(game->render,game->camera);
 	game_print_data(game);
 	EndSpriteBatch(render);
-*/
+
 
 }
 
@@ -151,15 +136,15 @@ void	shake_screen(t_game *game)
 		if (get_time(game) > game->shake_timer + 2)
 		{
 			game->shake = 0;
-			//game->post->Shake = 0;
+			game->post->Shake = 0;
 			game->p = c_point(0, 0);
 		}
-		while (x < 20)
+		/*while (x < 20)
 		{
 			game->p.x = (int)(frandom(-2, 2));
 			game->p.y = (int)(frandom(-2, 2));
 			x+=2;
-		}
+		}*/
 
 	}
 }
@@ -184,7 +169,7 @@ int	on_close(t_game *game)
 	game_emitter_destroy(game->gamepar);
 	FreeAssetManager(game->assets);
 	FreePrimitivesBatch(game->lines);
-	//FreePostProcessor(game->post);
+	FreePostProcessor(game->post);
 	FreeSpriteBatch(game->render);
 	FreeGraphic(game->font.image);
 	FreeTexture(game->font.texture);
@@ -367,7 +352,6 @@ void game_loop()
 {
 
     sdl_loop();
-	
     on_render(main_game);     
 	SDL_GL_SwapWindow( gWindow );
     
@@ -397,6 +381,9 @@ SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
 SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 0); // or 1*/
 
 
+SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_ES);
+SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 2);
+SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 0);
     SDL_GL_SetSwapInterval(1);
     SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
     SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);
@@ -413,7 +400,7 @@ SDL_Log("load glad");
 SDL_Log("create assets manager");
     game->assets= CreateAssetsManager();
 
-  // game->post = CreatePostProcessor(game->width,game->height);
+   game->post = CreatePostProcessor(game->width,game->height);
 //	SDL_assert(game->post !=NULL);
 
 SDL_Log("create sprite batch");
